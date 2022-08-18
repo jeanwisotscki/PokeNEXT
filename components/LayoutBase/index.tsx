@@ -1,7 +1,5 @@
 import Head from "next/head";
 
-import styles from "./index.module.css";
-
 import Footer from "../Footer";
 import Header from "../Header";
 
@@ -19,7 +17,7 @@ const LayoutBase: React.FC<ILayoutBaseProps> = ({ children }) => {
         <title>PokeNEXT</title>
       </Head>
       <Header />
-      <main>{children}</main>
+      <main className="main-container">{children}</main>
       <Footer />
     </>
   );

@@ -6,8 +6,8 @@ import styles from "./index.module.css";
 const Header = () => {
   return (
     <header>
-      <nav>
-        <div>
+      <nav className={styles.navbar}>
+        <div className={styles.logo}>
           <Image
             src="/images/pokeball.png"
             width={30}
@@ -16,7 +16,7 @@ const Header = () => {
           />
           <h1>PokeNEXT</h1>
         </div>
-        <ul>
+        <ul className={styles.link_items}>
           <li>
             <Link href="/">
               <a>Página inicial</a>
