@@ -1,0 +1,8 @@
+.sobre h2 {
+  color: #333;
+}
+
+.img_container {
+  display: flex;
+  justify-content: center;
+}
