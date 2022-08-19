@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import styles from "./Home.module.css";
 
+import Card from "../components/Card";
+
 interface IPokemon {
   name: string;
   url: string;
@@ -53,9 +55,7 @@ const Home: NextPage<{ pokemons: IPokemon[] }> = ({ pokemons }) => {
       </div>
       <div className={styles.pokemon_container}>
         {pokemons.map((pokemon) => (
-          <p key={pokemon.id}>
-            {pokemon.id} - {pokemon.name}
-          </p>
+          <Card key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>
     </>
