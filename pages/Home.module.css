@@ -1,0 +1,22 @@
+.title_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title_container h1 {
+  color: #e33d33;
+  font-size: 3em;
+  margin-right: 0.5rem;
+}
+
+.title_container h1 span {
+  color: #333;
+}
+
+.pokemon_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

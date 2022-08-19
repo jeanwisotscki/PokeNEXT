@@ -1,29 +1,13 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
+import Image from "next/image";
 
-import styles from "../styles/Home.module.css";
+import styles from "./Home.module.css";
 
 interface IPokemon {
   name: string;
   url: string;
   id: null | undefined | number;
 }
-
-export const getStaticProps = async () => {
-  const maxPokemons = 251;
-  const url = "https://pokeapi.co/api/v2/pokemon";
-
-  const res = await fetch(`${url}?limit=${maxPokemons}`);
-  const data = await res.json();
-
-  // add índice dos pokemons
-  data.results.forEach((pokemon: IPokemon, index: number) => {
-    pokemon.id = index + 1;
-  });
-
-  return {
-    props: { pokemons: data.results },
-  };
-};
 
 interface IPokemonsProps {
   count: number;
@@ -32,16 +16,48 @@ interface IPokemonsProps {
   results: IPokemon[];
 }
 
-const Home: NextPage<IPokemon[]> = ({ pokemons }: IPokemon[]) => {
+type Props = {
+  pokemons: IPokemon[];
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const maxPokemons = 51;
+  const url = "https://pokeapi.co/api/v2/pokemon";
+
+  const res = await fetch(`${url}?limit=${maxPokemons}`);
+  const data: IPokemonsProps = await res.json();
+
+  // add índice aos pokemons
+  data.results.forEach((pokemon, index) => {
+    pokemon.id = index + 1;
+  });
+
+  return {
+    props: { pokemons: data.results },
+  };
+};
+
+const Home: NextPage<{ pokemons: IPokemon[] }> = ({ pokemons }) => {
   return (
     <>
-      <ul>
+      <div className={styles.title_container}>
+        <h1>
+          Poke<span>NEXT</span>
+        </h1>
+        <Image
+          src="/images/pokeball.png"
+          width={50}
+          height={50}
+          alt="pokeball"
+        />
+      </div>
+      <div className={styles.pokemon_container}>
         {pokemons.map((pokemon) => (
-          <li key={pokemon.id}>
+          <p key={pokemon.id}>
             {pokemon.id} - {pokemon.name}
-          </li>
+          </p>
         ))}
-      </ul>
+      </div>
     </>
   );
 };
