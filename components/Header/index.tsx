@@ -3,6 +3,8 @@ import Link from "next/link";
 
 import styles from "./index.module.css";
 
+import Search from "../Search";
+
 const Header = () => {
   return (
     <header>
@@ -16,6 +18,9 @@ const Header = () => {
           />
           <h1>PokeNEXT</h1>
         </div>
+
+        <Search />
+
         <ul className={styles.link_items}>
           <li>
             <Link href="/">

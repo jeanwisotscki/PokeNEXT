@@ -1,0 +1,23 @@
+.form {
+  background-color: #eee;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.form input,
+.form button {
+  font-size: 1.2rem;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0.5rem 0.7rem;
+}
+
+.form button {
+  border-left: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background-color: #ddd;
+}
