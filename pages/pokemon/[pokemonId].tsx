@@ -4,6 +4,7 @@ import { ParsedUrlQuery } from "querystring";
 
 import styles from "./index.module.css";
 import { useRouter } from "next/router";
+import Loading from "../../components/Loading";
 
 interface IPokemon {
   name: string;
@@ -69,7 +70,7 @@ interface IPokemonType {
 const Pokemon = ({ pokemon }: any) => {
   const router = useRouter();
 
-  if (router.isFallback) return <div>carregando...</div>;
+  if (router.isFallback) return <Loading />;
 
   return (
     <div className={styles.pokemon_container}>
