@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 import { ParsedUrlQuery } from "querystring";
 
 import styles from "./index.module.css";
+import { useRouter } from "next/router";
 
 interface IPokemon {
   name: string;
@@ -33,7 +34,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -66,6 +67,10 @@ interface IPokemonType {
 }
 
 const Pokemon = ({ pokemon }: any) => {
+  const router = useRouter();
+
+  if (router.isFallback) return <div>carregando...</div>;
+
   return (
     <div className={styles.pokemon_container}>
       <h1 className={styles.pokemon_name}>{pokemon.name}</h1>
