@@ -75,12 +75,11 @@ const Pokemon = ({ pokemon }: any) => {
         height={200}
         alt="imagem do pokemon"
       />
-      <div>
-        <h3>Número:</h3>
+      <div className={styles.pokemon_id}>
         <p>#{pokemon.id}</p>
       </div>
       <div>
-        <h3>Tipo:</h3>
+        <h3>Tipos:</h3>
         <div className={styles.types_container}>
           {pokemon.types.map((item: IPokemonType, index: number) => (
             <span
