@@ -16,3 +16,19 @@ body {
   width: 90%;
   margin: 0 auto 2rem;
 }
+
+.fadeIn {
+  position: relative;
+  animation: fadeIn 0.5s both;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    top: 40px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}

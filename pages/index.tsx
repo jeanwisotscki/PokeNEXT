@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 const Home: NextPage<{ pokemons: IPokemon[] }> = ({ pokemons }) => {
   return (
-    <>
+    <div className="fadeIn">
       <div className={styles.title_container}>
         <h1>
           Poke<span>NEXT</span>
@@ -58,7 +58,7 @@ const Home: NextPage<{ pokemons: IPokemon[] }> = ({ pokemons }) => {
           <Card key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

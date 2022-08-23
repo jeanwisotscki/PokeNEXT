@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import Footer from "../Footer";
 import Header from "../Header";
+import SearchBar from "../SearchBar";
 
 interface ILayoutBaseProps {
   children: React.ReactNode;
@@ -17,6 +18,7 @@ const LayoutBase: React.FC<ILayoutBaseProps> = ({ children }) => {
         <title>PokeNEXT</title>
       </Head>
       <Header />
+      <SearchBar />
       <main className="main-container">{children}</main>
       <Footer />
     </>

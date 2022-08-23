@@ -73,7 +73,7 @@ const Pokemon = ({ pokemon }: any) => {
   if (router.isFallback) return <Loading />;
 
   return (
-    <div className={styles.pokemon_container}>
+    <div className={`fadeIn ${styles.pokemon_container}`}>
       <h1 className={styles.pokemon_name}>{pokemon.name}</h1>
       <Image
         src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`}

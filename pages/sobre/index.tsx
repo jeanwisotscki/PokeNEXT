@@ -4,7 +4,7 @@ import styles from "./index.module.css";
 
 const Sobre = () => {
   return (
-    <div className={styles.sobre}>
+    <div className={`fadeIn ${styles.sobre}`}>
       <h2>Sobre o projeto</h2>
       <p>
         Desenvolvido como projeto de estudo, usando majoritariamente o framework

@@ -1,7 +1,18 @@
 .form {
   background-color: #eee;
+  max-width: 60rem;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto;
   border-radius: 5px;
   overflow: hidden;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+.form:hover {
+  border: 2px solid #333;
+  box-shadow: 0 0 0 1px #666;
 }
 
 .form input,
@@ -10,7 +21,11 @@
   background-color: transparent;
   outline: none;
   border: none;
-  padding: 0.5rem 0.7rem;
+  padding: 0.7rem 1.2rem;
+}
+
+.form input {
+  width: 100%;
 }
 
 .form button {
