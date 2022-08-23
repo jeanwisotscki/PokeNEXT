@@ -7,15 +7,17 @@ const Header = () => {
   return (
     <header>
       <nav className={styles.navbar}>
-        <div className={styles.logo}>
-          <Image
-            src="/images/pokeball.png"
-            width={30}
-            height={30}
-            alt="pokeball"
-          />
-          <h1>PokeNEXT</h1>
-        </div>
+        <Link href="/">
+          <div className={styles.logo}>
+            <Image
+              src="/images/pokeball.png"
+              width={30}
+              height={30}
+              alt="pokeball"
+            />
+            <h1>PokeNEXT</h1>
+          </div>
+        </Link>
 
         <ul className={styles.link_items}>
           <li>
