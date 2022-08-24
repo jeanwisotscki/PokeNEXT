@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./index.module.css";
 
-import { PaginationButton } from "./components/PageButton";
+import { PaginationButton } from "./components/PaginationButton";
 
 import Card from "../Card";
 
@@ -60,14 +60,11 @@ export const Feed = () => {
           <Card key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>
-      <div>
+      <div className={styles.buttons_wrapper}>
         <PaginationButton onClick={() => handleFetchPage(prevPage)}>
           Anterior
         </PaginationButton>
-        <PaginationButton
-          onClick={() => handleFetchPage(nextPage)}
-          floatRight={true}
-        >
+        <PaginationButton onClick={() => handleFetchPage(nextPage)}>
           Próxima
         </PaginationButton>
       </div>

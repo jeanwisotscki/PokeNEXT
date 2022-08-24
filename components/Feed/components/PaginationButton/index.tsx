@@ -1,16 +1,16 @@
+import styles from "./index.module.css";
+
 interface IPaginationButtonProps {
   children: string;
-  floatRight?: boolean;
   onClick: () => void;
 }
 
 export const PaginationButton: React.FC<IPaginationButtonProps> = ({
   children,
-  floatRight = false,
   onClick,
 }) => {
   return (
-    <button onClick={onClick} style={{ float: floatRight ? "right" : "left" }}>
+    <button className={styles.btn} onClick={onClick}>
       {children}
     </button>
   );

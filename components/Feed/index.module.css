@@ -5,3 +5,9 @@
   flex-wrap: wrap;
   gap: 2rem 0;
 }
+
+.buttons_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}

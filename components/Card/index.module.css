@@ -55,21 +55,18 @@
 
 @media screen and (max-width: 969px) {
   .card {
-    width: 28%;
-    margin: 0 1rem;
+    width: 31%;
   }
 }
 
 @media screen and (max-width: 769px) {
   .card {
-    width: 42%;
-    margin: 0 1rem;
+    width: 48%;
   }
 }
 
 @media screen and (max-width: 569px) {
   .card {
     width: 100%;
-    margin: 0 1rem;
   }
 }
