@@ -1,46 +1,11 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { NextPage } from "next";
 import Image from "next/image";
 
 import styles from "./Home.module.css";
 
-import Card from "../components/Card";
 import { Feed } from "../components/Feed";
 
-interface IPokemon {
-  name: string;
-  url: string;
-  id: null | undefined | number;
-}
-
-interface IPokemonsProps {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: IPokemon[];
-}
-
-type Props = {
-  pokemons: IPokemon[];
-};
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const maxPokemons = 51;
-  const url = "https://pokeapi.co/api/v2/pokemon";
-
-  const res = await fetch(`${url}?limit=${maxPokemons}`);
-  const data: IPokemonsProps = await res.json();
-
-  // add índice aos pokemons
-  data.results.forEach((pokemon, index) => {
-    pokemon.id = index + 1;
-  });
-
-  return {
-    props: { pokemons: data.results },
-  };
-};
-
-const Home: NextPage<{ pokemons: IPokemon[] }> = ({ pokemons }) => {
+const Home: NextPage = () => {
   return (
     <div className="fadeIn">
       <div className={styles.title_container}>

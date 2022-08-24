@@ -1,7 +1,17 @@
-import React from "react";
+interface IPaginationButtonProps {
+  children: string;
+  floatRight?: boolean;
+  onClick: () => void;
+}
 
-export const PaginationButton = ({ text = "Button", floatRight = false }) => {
+export const PaginationButton: React.FC<IPaginationButtonProps> = ({
+  children,
+  floatRight = false,
+  onClick,
+}) => {
   return (
-    <button style={{ float: floatRight ? "right" : "left" }}>{text}</button>
+    <button onClick={onClick} style={{ float: floatRight ? "right" : "left" }}>
+      {children}
+    </button>
   );
 };

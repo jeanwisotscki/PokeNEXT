@@ -1,8 +1,10 @@
 import React from "react";
-import Card from "../Card";
-import { PaginationButton } from "./components/PageButton";
 
 import styles from "./index.module.css";
+
+import { PaginationButton } from "./components/PageButton";
+
+import Card from "../Card";
 
 interface IPokemon {
   name: string;
@@ -17,36 +19,58 @@ interface IPokemonsProps {
   results: IPokemon[];
 }
 
+function getOffset(string: string) {
+  const firstSplit = string.split("?offset=");
+  const secondSplit = firstSplit[1].split("&");
+  const offset = secondSplit[0];
+
+  return offset;
+}
+
 export const Feed = () => {
-  const [data, setData] = React.useState<IPokemonsProps>();
+  const [pokemonsList, setPokemonsList] = React.useState<IPokemon[]>();
+  const [nextPage, setNextPage] = React.useState<string | null>(null);
+  const [prevPage, setPrevPage] = React.useState<string | null>(null);
 
-  React.useEffect(() => {
-    const handleFetch = async () => {
-      const maxPokemons = 20;
-      const url = "https://pokeapi.co/api/v2/pokemon";
+  const handleFetchPage = async (page: string | null) => {
+    if (page) {
+      const offset = Number(getOffset(page));
 
-      const res = await fetch(`${url}?limit=${maxPokemons}`);
-      const data: IPokemonsProps = await res.json();
+      const response = await fetch(page);
+      const data: IPokemonsProps = await response.json();
 
-      // add índice aos pokemons
       data.results.forEach((pokemon, index) => {
-        pokemon.id = index + 1;
+        pokemon.id = offset + index + 1;
       });
 
-      setData(data);
-    };
-    handleFetch();
+      setPokemonsList(data.results);
+      setNextPage(data.next);
+      setPrevPage(data.previous);
+    }
+  };
+
+  React.useEffect(() => {
+    handleFetchPage("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20");
   }, []);
 
   return (
     <>
       <div className={styles.pokemon_container}>
-        {data?.results.map((pokemon) => (
+        {pokemonsList?.map((pokemon) => (
           <Card key={pokemon.id} pokemon={pokemon} />
         ))}
       </div>
-      <PaginationButton text="< Anterior" />
-      <PaginationButton text="Próxima >" floatRight={true} />
+      <div>
+        <PaginationButton onClick={() => handleFetchPage(prevPage)}>
+          Anterior
+        </PaginationButton>
+        <PaginationButton
+          onClick={() => handleFetchPage(nextPage)}
+          floatRight={true}
+        >
+          Próxima
+        </PaginationButton>
+      </div>
     </>
   );
 };
