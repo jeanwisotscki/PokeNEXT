@@ -1,5 +1,6 @@
 import React from "react";
 import NProgress from "nprogress";
+import toast, { Toaster } from "react-hot-toast";
 
 import styles from "./index.module.css";
 
@@ -21,12 +22,12 @@ const SearchBar = () => {
       setValue("");
       NProgress.done();
 
-      return alert("O número máximo de pokemons é de 1154");
+      return toast.error("O número máximo de pokemons é de 1084");
     }
 
     NProgress.done();
 
-    return alert("Preencha o campo corretamente");
+    return toast.error("Preencha o campo antes de pesquisar");
   }
 
   return (
@@ -41,6 +42,9 @@ const SearchBar = () => {
         onChange={(e) => setValue(e.target.value)}
       />
       <button>Pesquisar</button>
+      <div>
+        <Toaster />
+      </div>
     </form>
   );
 };
