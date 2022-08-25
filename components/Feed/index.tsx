@@ -19,6 +19,8 @@ interface IPokemonsProps {
   results: IPokemon[];
 }
 
+let offset = 0;
+
 function getOffset(string: string) {
   const firstSplit = string.split("?offset=");
   const secondSplit = firstSplit[1].split("&");
@@ -34,7 +36,7 @@ export const Feed = () => {
 
   const handleFetchPage = async (page: string | null) => {
     if (page) {
-      const offset = Number(getOffset(page));
+      offset = Number(getOffset(page));
 
       const response = await fetch(page);
       const data: IPokemonsProps = await response.json();
@@ -50,7 +52,10 @@ export const Feed = () => {
   };
 
   React.useEffect(() => {
-    handleFetchPage("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20");
+    handleFetchPage(
+      `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=8`
+    );
+    console.log("usando o offset: ", offset);
   }, []);
 
   return (
