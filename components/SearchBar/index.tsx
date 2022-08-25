@@ -11,18 +11,26 @@ const SearchBar = () => {
     e.preventDefault();
     NProgress.start();
 
-    if (value && +value <= 1154) {
+    if (value && +value > 0 && +value <= 905) {
+      window.location.href = `/pokemon/${value}`;
       setValue("");
       NProgress.done();
 
-      return (window.location.href = `/pokemon/${value}`);
+      return;
     }
 
-    if (value && +value > 1154) {
+    if (value && +value > 905) {
       setValue("");
       NProgress.done();
 
-      return toast.error("O número máximo de pokemons é de 1084");
+      return toast.error("Número de pokemons existentes é de 905");
+    }
+
+    if (value && +value < 0) {
+      setValue("");
+      NProgress.done();
+
+      return toast.error("Somente números positivos");
     }
 
     NProgress.done();
