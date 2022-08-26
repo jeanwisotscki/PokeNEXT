@@ -51,33 +51,10 @@ export const Feed = () => {
     }
   };
 
-  const handleScroll = () => {
-    const scrollHeight = document.documentElement.scrollHeight;
-    const scrollTop = document.documentElement.scrollTop;
-    const innerHeight = window.innerHeight;
-
-    if (scrollTop + innerHeight + 1 > scrollHeight) {
-      console.log(
-        `scrollHeight: ${scrollHeight} scrollTop: ${scrollTop} innerHeight: ${innerHeight}`
-      );
-
-      handleFetchPage(
-        `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=16`
-      );
-      console.log(offset);
-    }
-  };
-
   React.useEffect(() => {
     handleFetchPage(
       `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=8`
     );
-  }, []);
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
