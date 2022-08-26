@@ -11,26 +11,12 @@ const SearchBar = () => {
     e.preventDefault();
     NProgress.start();
 
-    if (value && +value > 0 && +value <= 905) {
+    if (value) {
       window.location.href = `/pokemon/${value}`;
       setValue("");
       NProgress.done();
 
       return;
-    }
-
-    if (value && +value > 905) {
-      setValue("");
-      NProgress.done();
-
-      return toast.error("Número de pokemons existentes é de 905");
-    }
-
-    if (value && +value < 0) {
-      setValue("");
-      NProgress.done();
-
-      return toast.error("Somente números positivos");
     }
 
     NProgress.done();
@@ -42,10 +28,10 @@ const SearchBar = () => {
     <form className={styles.form} onSubmit={handleSubmit}>
       <label htmlFor="search">Pesquisar pokemon</label>
       <input
-        type="number"
+        type="text"
         name="search"
         id="search"
-        placeholder="Número do pokemon"
+        placeholder="Nome ou número do pokemon"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
