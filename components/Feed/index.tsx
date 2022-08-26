@@ -34,20 +34,26 @@ export const Feed = () => {
   const [nextPage, setNextPage] = React.useState<string | null>(null);
   const [prevPage, setPrevPage] = React.useState<string | null>(null);
 
-  const handleFetchPage = async (page: string | null) => {
-    if (page) {
-      offset = Number(getOffset(page));
+  const handleFetchPage = async (url: string | null) => {
+    if (url) {
+      offset = Number(getOffset(url));
 
-      const response = await fetch(page);
-      const data: IPokemonsProps = await response.json();
+      try {
+        const response = await fetch(url);
+        const data: IPokemonsProps = await response.json();
 
-      data.results.forEach((pokemon, index) => {
-        pokemon.id = offset + index + 1;
-      });
+        data.results.forEach((pokemon, index) => {
+          pokemon.id = offset + index + 1;
+        });
 
-      setPokemonsList(data.results);
-      setNextPage(data.next);
-      setPrevPage(data.previous);
+        setPokemonsList(data.results);
+        setNextPage(data.next);
+        setPrevPage(data.previous);
+      } catch (err) {
+        console.log(err);
+      } finally {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
   };
 

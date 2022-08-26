@@ -1,4 +1,5 @@
 import React from "react";
+
 import NProgress from "nprogress";
 import toast, { Toaster } from "react-hot-toast";
 
