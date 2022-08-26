@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./Home.module.css";
 
 import { Feed } from "../components/Feed";
+import SearchBar from "../components/SearchBar";
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +20,8 @@ const Home: NextPage = () => {
           alt="pokeball"
         />
       </div>
+
+      <SearchBar />
 
       <Feed />
     </div>

@@ -21,8 +21,8 @@ interface IPokemonsProps {
 
 let offset = 0;
 
-function getOffset(string: string) {
-  const firstSplit = string.split("?offset=");
+function getOffset(url: string) {
+  const firstSplit = url.split("?offset=");
   const secondSplit = firstSplit[1].split("&");
   const offset = secondSplit[0];
 
@@ -53,7 +53,7 @@ export const Feed = () => {
 
   React.useEffect(() => {
     handleFetchPage(
-      `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=8`
+      `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=16`
     );
   }, []);
 

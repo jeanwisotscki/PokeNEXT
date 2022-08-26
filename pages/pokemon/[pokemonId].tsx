@@ -1,65 +1,13 @@
+import React from "react";
+
 import Image from "next/image";
-import { GetStaticProps } from "next";
-import { ParsedUrlQuery } from "querystring";
+import { useRouter } from "next/router";
 
 import styles from "./index.module.css";
-import { useRouter } from "next/router";
+
 import Loading from "../../components/Loading";
 
-interface IPokemon {
-  name: string;
-  url: string;
-  id: null | undefined | number;
-}
-
-interface IPokemonsProps {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: IPokemon[];
-}
-
-export const getStaticPaths = async () => {
-  const maxPokemons = 51;
-  const url = "https://pokeapi.co/api/v2/pokemon";
-
-  const res = await fetch(`${url}?limit=${maxPokemons}`);
-  const data: IPokemonsProps = await res.json();
-
-  // params
-  const paths = data.results.map((_, index) => {
-    return {
-      params: { pokemonId: (index + 1).toString() },
-    };
-  });
-
-  return {
-    paths,
-    fallback: true,
-  };
-};
-
-type Props = {
-  pokemon: Response;
-};
-interface Params extends ParsedUrlQuery {
-  pokemonId: string;
-}
-
-export const getStaticProps: GetStaticProps<Props, Params> = async (
-  context
-) => {
-  const id = context.params!.pokemonId;
-
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-  const pokemon = await res.json();
-
-  return {
-    props: { pokemon },
-  };
-};
-
-interface IPokemonType {
+interface IPokeTypes {
   slot: number;
   type: {
     name: string;
@@ -67,47 +15,103 @@ interface IPokemonType {
   };
 }
 
-const Pokemon = ({ pokemon }: any) => {
-  const router = useRouter();
+interface IPoke {
+  id: number;
+  name: string;
+  weight: number;
+  height: number;
+  types: IPokeTypes[];
+}
 
-  if (router.isFallback) return <Loading />;
+const Pokemon = () => {
+  const router = useRouter();
+  const id = router.query.pokemonId;
+
+  const [pokemon, setPokemon] = React.useState<IPoke>();
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [error, setError] = React.useState(false);
+
+  const handleFetchPage = async (url: string) => {
+    if (url) {
+      setIsLoading(true);
+      setError(false);
+
+      try {
+        const response = await fetch(url);
+        const data: any = await response.json();
+
+        const poke = {
+          id: data.id,
+          name: data.name,
+          weight: data.weight,
+          height: data.height,
+          types: data.types,
+        };
+
+        setIsLoading(false);
+        setPokemon(poke);
+      } catch (err) {
+        setError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  };
+
+  React.useEffect(() => {
+    if (id) {
+      handleFetchPage(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    }
+  }, [id]);
 
   return (
-    <div className={`fadeIn ${styles.pokemon_container}`}>
-      <h1 className={styles.pokemon_name}>{pokemon.name}</h1>
-      <Image
-        src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`}
-        width={200}
-        height={200}
-        alt="imagem do pokemon"
-      />
-      <div className={styles.pokemon_id}>
-        <p>#{pokemon.id}</p>
-      </div>
-      <div>
-        <h3>Tipos:</h3>
-        <div className={styles.types_container}>
-          {pokemon.types.map((item: IPokemonType, index: number) => (
-            <span
-              key={index}
-              className={`${styles.type} ${styles["type_" + item.type.name]}`}
-            >
-              {item.type.name}
-            </span>
-          ))}
-        </div>
-      </div>
-      <div className={styles.data_container}>
-        <div className={styles.data_height}>
-          <h3>Altura:</h3>
-          <p>{pokemon.height * 10} cm</p>
-        </div>
-        <div className={styles.data_weight}>
-          <h3>Peso:</h3>
-          <p>{pokemon.weight / 10} kg</p>
-        </div>
-      </div>
-    </div>
+    <>
+      {isLoading ? (
+        <Loading />
+      ) : error ? (
+        <h3>Ops... um erro inesperado aconteceu 🤷 </h3>
+      ) : (
+        pokemon && (
+          <div className={`fadeIn ${styles.pokemon_container}`}>
+            <h1 className={styles.pokemon_name}>{pokemon.name}</h1>
+            <Image
+              src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`}
+              width={200}
+              height={200}
+              alt="imagem do pokemon"
+            />
+            <div className={styles.pokemon_id}>
+              <p>#{pokemon.id}</p>
+            </div>
+            <div>
+              <h3>Tipos:</h3>
+              <div className={styles.types_container}>
+                {pokemon.types.map((item: IPokeTypes, index: number) => (
+                  <span
+                    key={index}
+                    className={`${styles.type} ${
+                      styles["type_" + item.type.name]
+                    }`}
+                  >
+                    {item.type.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className={styles.data_container}>
+              <div className={styles.data_height}>
+                <h3>Altura:</h3>
+                <p>{pokemon.height * 10} cm</p>
+              </div>
+              <div className={styles.data_weight}>
+                <h3>Peso:</h3>
+                <p>{pokemon.weight / 10} kg</p>
+              </div>
+            </div>
+          </div>
+        )
+      )}
+    </>
   );
 };
 
