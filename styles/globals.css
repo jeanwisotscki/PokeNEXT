@@ -1,9 +1,35 @@
+:root {
+  --very-dark-bg: #040f1a;
+  --dark-bg: #071422;
+  --card-bg-1: #0b1b2b;
+  --card-bg-2: #112131;
+  --border: #1c2f41;
+  --base-label: #3a536b;
+  --base-span: #7b96b2;
+  --base-text: #afc2d4;
+  --base-subtitle: #c4d4e3;
+  --base-title: #e7edf4;
+  --brand-blue: #3294f8;
+
+  --title-title-l: 1.5rem;
+  --title-title-m: 1.25rem;
+  --title-title-s: 1.125rem;
+  --text-text-m: 1rem;
+  --text-text-s: 0.875rem;
+  --components-link: 0.75rem;
+}
+
 * {
   box-sizing: border-box;
 }
 
 html,
 body {
+  background: linear-gradient(
+    145deg,
+    var(--very-dark-bg) 0%,
+    var(--dark-bg) 100%
+  );
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
