@@ -33,6 +33,7 @@ const SearchBar = () => {
         name="search"
         id="search"
         placeholder="Nome ou número do pokemon"
+        autoComplete="off"
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
