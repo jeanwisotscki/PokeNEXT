@@ -5,6 +5,10 @@ const nextConfig = {
   images: {
     domains: ["cdn.traction.one"],
   },
+  i18n: {
+    locales: ["pt-br"],
+    defaultLocale: "pt-br",
+  },
 };
 
 module.exports = nextConfig;
