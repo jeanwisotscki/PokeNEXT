@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import styles from "./index.module.css";
 
 import Loading from "../../components/Loading";
+import Head from "next/head";
 
 interface IPokeTypes {
   slot: number;
@@ -66,6 +67,9 @@ const Pokemon = () => {
 
   return (
     <>
+      <Head>
+        <title>PokeNEXT | {pokemon?.name.toUpperCase()}</title>
+      </Head>
       {isLoading ? (
         <Loading />
       ) : error ? (

@@ -13,8 +13,6 @@ const LayoutBase: React.FC<ILayoutBaseProps> = ({ children }) => {
       <Head>
         <meta name="description" content="Consultas de pokemons" />
         <link rel="icon" href="/images/favicon.ico" />
-
-        <title>PokeNEXT</title>
       </Head>
       <Header />
       <main className="main-container">{children}</main>

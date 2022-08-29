@@ -21,7 +21,7 @@ const Card: React.FC<{ pokemon: IPokemon }> = ({ pokemon }) => {
           priority
         />
         <p className={styles.id}>#{pokemon.id}</p>
-        <h3 className={styles.title}>{pokemon.name}</h3>
+        <h2 className={styles.title}>{pokemon.name}</h2>
         <button className={styles.btn}>Detalhes</button>
       </div>
     </Link>
