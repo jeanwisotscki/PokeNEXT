@@ -1,5 +1,11 @@
 .sobre h2 {
-  color: #333;
+  color: var(--text-white);
+  font-size: 2.5rem;
+}
+
+.sobre p {
+  color: var(--text-white);
+  margin-bottom: 2rem;
 }
 
 .img_container {

@@ -4,8 +4,8 @@
 
 .pokemon_name {
   max-width: 20rem;
-  background-color: #333;
-  color: #fff;
+  background-color: var(--text-black);
+  color: var(--text-white);
   font-size: 2.5rem;
   text-transform: capitalize;
   padding: 0.3rem;
@@ -19,16 +19,16 @@
 }
 
 .pokemon_id p {
-  background-color: #e33d33;
-  color: #fff;
+  background-color: var(--base-red);
+  color: var(--text-white);
   font-weight: bolder;
   padding: 0.5rem 0.7rem;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
 }
 
 .pokemon_container h3 {
-  color: #333;
-  font-size: 1.2rem;
+  color: var(--text-white);
+  font-size: var(--title-title-m);
   margin: 0.4rem;
 }
 
@@ -39,15 +39,35 @@
 }
 
 .type {
-  background-color: #333;
-  color: #fff;
-  font-size: 0.8rem;
+  background-color: var(--text-black);
+  color: var(--text-white);
+  font-size: var(--text-text-s);
   font-weight: bolder;
   text-transform: uppercase;
   margin-right: 0.5rem;
   padding: 0.5rem 0.7rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: var(--border-radius);
+}
+
+.data_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.data_container h3 {
+  margin: 0 0.8rem;
+}
+
+.data_container p {
+  color: var(--text-white);
+  margin: 0 0.8rem;
+}
+
+.data_height {
+  border-right: 3px solid var(--text-white);
 }
 
 .type_normal {
@@ -120,24 +140,4 @@
 
 .type_fairy {
   background-color: #e9e;
-}
-
-.data_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.5rem;
-  padding: 0;
-}
-
-.data_container h3 {
-  margin: 0 0.8rem;
-}
-
-.data_container p {
-  margin: 0 0.8rem;
-}
-
-.data_height {
-  border-right: 3px solid #ccc;
 }

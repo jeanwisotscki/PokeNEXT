@@ -1,5 +1,5 @@
 .navbar {
-  color: #fff;
+  color: var(--text-white);
   display: flex;
   justify-content: space-between;
   padding: 0.7rem 1rem;
@@ -21,21 +21,21 @@
 }
 
 .link_items li a {
-  color: #fff;
+  color: var(--text-white);
   display: block;
-  font-size: 1.1rem;
+  font-size: var(--title-title-s);
   text-decoration: none;
   padding: 0.7rem 1rem;
   transition: 0.3s;
   border-bottom: 2px solid transparent;
 }
 .link_items li a:hover {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid var(--text-white);
 }
 
 @media screen and (max-width: 475px) {
   .link_items li a {
-    font-size: 1rem;
+    font-size: var(--text-text-m);
     padding: 0.5rem;
   }
 }

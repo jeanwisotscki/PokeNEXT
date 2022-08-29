@@ -69,7 +69,9 @@ const Pokemon = () => {
       {isLoading ? (
         <Loading />
       ) : error ? (
-        <h3>Ops... Não encontrei nada sobre esse pokemon 🤷 </h3>
+        <h3 style={{ color: "#fff", textAlign: "center" }}>
+          Ops... Não encontrei nada sobre esse pokemon 🤷{" "}
+        </h3>
       ) : (
         pokemon && (
           <div className={`fadeIn ${styles.pokemon_container}`}>

@@ -5,13 +5,13 @@
 }
 
 .title_container h1 {
-  color: #e33d33;
-  font-size: 3em;
+  color: var(--base-red);
+  font-size: 3rem;
   margin-right: 0.5rem;
 }
 
 .title_container h1 span {
-  color: #333;
+  color: var(--text-white);
 }
 
 .pokemon_container {
