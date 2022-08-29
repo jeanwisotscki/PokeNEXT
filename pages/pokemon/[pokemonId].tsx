@@ -31,7 +31,7 @@ const Pokemon = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
 
-  const handleFetchPage = async (url: string) => {
+  const handleFetchPokemon = async (url: string) => {
     if (url) {
       setIsLoading(true);
       setError(false);
@@ -60,7 +60,7 @@ const Pokemon = () => {
 
   React.useEffect(() => {
     if (id) {
-      handleFetchPage(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      handleFetchPokemon(`https://pokeapi.co/api/v2/pokemon/${id}`);
     }
   }, [id]);
 
