@@ -16,7 +16,7 @@ Confira o projeto [clicando aqui](https://poke-next-jeanwisotscki.vercel.app/) (
 
 # Preview
 
-![App Gif](./pokenext.gif)
+![App Gif](pokenext.gif)
 
 <br>
 
