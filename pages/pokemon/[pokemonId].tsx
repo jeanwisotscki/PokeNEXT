@@ -81,6 +81,7 @@ const Pokemon = () => {
               width={200}
               height={200}
               alt="imagem do pokemon"
+              priority
             />
             <div className={styles.pokemon_id}>
               <p>#{pokemon.id}</p>

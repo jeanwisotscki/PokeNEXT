@@ -18,10 +18,11 @@ const Card: React.FC<{ pokemon: IPokemon }> = ({ pokemon }) => {
           width={120}
           height={120}
           alt="imagem do pokemon"
+          priority
         />
         <p className={styles.id}>#{pokemon.id}</p>
         <h3 className={styles.title}>{pokemon.name}</h3>
-        <a className={styles.btn}>Detalhes</a>
+        <button className={styles.btn}>Detalhes</button>
       </div>
     </Link>
   );
