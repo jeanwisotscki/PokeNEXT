@@ -35,9 +35,10 @@ body {
 }
 
 .main-container {
-  min-height: 70vh;
+  min-height: 100vh;
   max-width: 60rem;
   width: 90%;
+  flex-direction: column;
   margin: 0 auto 2rem;
 }
 
