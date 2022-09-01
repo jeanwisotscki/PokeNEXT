@@ -1,5 +1,17 @@
-import React from "react";
+import React, { createContext } from "react";
 
-export const ThemeContext = () => {
-  return <div>ThemeContext</div>;
+interface ThemeProviderProps {
+  children: React.ReactNode;
+}
+
+export const ThemeContext = createContext({});
+
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
+  const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+
+  return (
+    <ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };
