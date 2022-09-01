@@ -4,3 +4,13 @@
   right: 20px;
   cursor: pointer;
 }
+
+.light {
+  background-color: #ccc;
+  color: #333;
+}
+
+.dark {
+  background-color: #333;
+  color: #fff;
+}

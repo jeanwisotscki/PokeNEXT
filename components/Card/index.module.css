@@ -1,19 +1,29 @@
 .card {
   width: 23%;
   color: var(--text-white);
-  background: linear-gradient(145deg, var(--dark-bg) 0%, var(--card-bg-2) 100%);
+  background: #333;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 2rem 1rem;
-  border: 2px solid var(--card-bg-2);
+  border: 2px solid;
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: 0.3s;
 }
 .card:hover {
   transform: scale(1.05);
+}
+
+.dark {
+  background: linear-gradient(145deg, var(--dark-bg) 0%, var(--card-bg-2) 100%);
+  border-color: var(--card-bg-2);
+}
+
+.light {
+  background: linear-gradient(145deg, #eee 0%, #ccc 100%);
+  border-color: #bbb;
 }
 
 .id {

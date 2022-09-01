@@ -8,12 +8,18 @@ export const ThemeButton = () => {
 
   function toggleTheme() {
     setIsDarkTheme(!isDarkTheme);
-    console.log(isDarkTheme);
+    document.querySelector("body")!.classList.toggle("dark");
   }
 
   return (
-    <button className={styles.button} onClick={toggleTheme}>
-      ThemeButton
+    <button
+      aria-label="toggle theme"
+      className={`${styles.button} ${
+        isDarkTheme ? styles.dark : styles.light
+      } `}
+      onClick={toggleTheme}
+    >
+      Trocar tema
     </button>
   );
 };
