@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
-import Image from "next/image";
 
-import styles from "./Home.module.css";
+import Image from "next/image";
+import Head from "next/head";
 
 import { Feed } from "../components/Feed";
 import SearchBar from "../components/SearchBar";
-import Head from "next/head";
+
+import styles from "./Home.module.css";
 
 const Home: NextPage = () => {
   return (

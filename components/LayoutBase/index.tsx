@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import Footer from "../Footer";
 import Header from "../Header";
+import { ThemeButton } from "../ThemeButton";
 
 interface ILayoutBaseProps {
   children: React.ReactNode;
@@ -16,6 +17,7 @@ const LayoutBase: React.FC<ILayoutBaseProps> = ({ children }) => {
       </Head>
       <Header />
       <main className="main-container">{children}</main>
+      <ThemeButton />
       <Footer />
     </>
   );
