@@ -1,4 +1,5 @@
 import React from "react";
+
 import type { NextPage } from "next";
 
 import Image from "next/image";
@@ -7,8 +8,9 @@ import Head from "next/head";
 import { Feed } from "../components/Feed";
 import SearchBar from "../components/SearchBar";
 
-import styles from "./Home.module.css";
 import { ThemeContext } from "../contexts/ThemeContext";
+
+import styles from "./Home.module.css";
 
 const Home: NextPage = () => {
   const { isDarkTheme } = React.useContext(ThemeContext);
@@ -17,7 +19,6 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>PokeNEXT | Home</title>
-        <body className={isDarkTheme ? "dark" : ""} />
       </Head>
       <div className="fadeIn">
         <div className={styles.title_container}>
