@@ -1,9 +1,9 @@
 import React from "react";
 
-import type { NextPage } from "next";
-
 import Image from "next/image";
 import Head from "next/head";
+
+import type { NextPage } from "next";
 
 import { Feed } from "../components/Feed";
 import SearchBar from "../components/SearchBar";
