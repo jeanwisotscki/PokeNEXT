@@ -1,7 +1,16 @@
 .footer {
-  background-color: var(--card-bg-1);
   color: var(--text-white);
   text-align: center;
   padding: 2rem;
-  border-top: 2px solid var(--card-bg-2);
+  border-top: 2px solid;
+}
+
+.dark {
+  background-color: var(--card-bg-1);
+  border-color: var(--card-bg-2);
+}
+
+.light {
+  background-color: var(--brand-blue);
+  border-color: var(--strong-light-bg);
 }

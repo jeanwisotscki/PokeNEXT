@@ -1,8 +1,16 @@
+import React from "react";
+
+import { ThemeContext } from "../../contexts/ThemeContext";
+
 import styles from "./index.module.css";
 
 const Footer = () => {
+  const { isDarkTheme } = React.useContext(ThemeContext);
+
   return (
-    <footer className={styles.footer}>
+    <footer
+      className={`${styles.footer} ${isDarkTheme ? styles.dark : styles.light}`}
+    >
       <p>
         <strong>PokeNEXT </strong>
         &copy; 2022
@@ -10,7 +18,7 @@ const Footer = () => {
       <span>
         Desenvolvido por{" "}
         <a
-          style={{ color: "#659ef4" }}
+          style={{ color: "#fff" }}
           href="https://github.com/jeanwisotscki"
           target="_blank"
           rel="noopener noreferrer"
