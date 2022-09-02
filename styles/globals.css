@@ -3,9 +3,11 @@
   --dark-bg: #071422;
   --card-bg-1: #0b1b2b;
   --card-bg-2: #112131;
+  --light-bg: #4463ffcc;
+  --strong-light-bg: #4463ff;
   --soft-bg: #dee6ee;
   --base-red: #b9342d;
-  --brand-blue: #3294f8;
+  --brand-blue: #3256f8;
   --text-black: #333;
   --text-white: #e7edf4;
   --border-radius: 5px;
@@ -23,15 +25,22 @@
 
 html,
 body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.dark {
   background: linear-gradient(
     145deg,
     var(--very-dark-bg) 0%,
     var(--dark-bg) 100%
   );
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+.light {
+  background: var(--light-bg);
 }
 
 .main-container {

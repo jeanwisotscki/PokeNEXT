@@ -1,0 +1,21 @@
+.button {
+  color: var(--text-white);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-weight: bold;
+  padding: 0.5rem;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+  border-radius: var(--border-radius);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.light {
+  background-color: var(--strong-light-bg);
+}
+
+.dark {
+  background-color: var(--text-black);
+}

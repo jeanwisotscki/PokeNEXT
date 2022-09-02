@@ -1,10 +1,10 @@
 import React from "react";
 
-import styles from "./index.module.css";
-
 import { PaginationButton } from "./components/PaginationButton";
 
 import Card from "../Card";
+
+import styles from "./index.module.css";
 
 interface IPokemon {
   name: string;

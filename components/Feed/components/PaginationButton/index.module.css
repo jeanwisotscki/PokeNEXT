@@ -1,5 +1,4 @@
 .btn {
-  background-color: var(--text-black);
   color: var(--text-white);
   font-weight: bold;
   padding: 0.7rem 1.2rem;
@@ -10,6 +9,16 @@
   transition: 0.3s;
 }
 
-.btn:hover {
+.dark {
+  background-color: var(--text-black);
+}
+.btn.dark:hover {
   background-color: #222;
+}
+
+.light {
+  background-color: var(--strong-light-bg);
+}
+.btn.light:hover {
+  background-color: var(--light-bg);
 }
