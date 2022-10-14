@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["cdn.traction.one"],
+    domains: ["assets.pokemon.com"],
   },
   i18n: {
     locales: ["pt-br"],

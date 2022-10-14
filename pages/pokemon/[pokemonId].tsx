@@ -32,6 +32,22 @@ const Pokemon = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
 
+  const paddedId = (pokeId: number) => {
+    /** 
+      o id que temos para fazer o fetch vem no formato '1', '2'...
+      a API das imagens faz o fetch com o id no formato '001', '002'...
+
+      essa função muda o formato do nosso id para o formato que a API faz o fetch
+
+      Ex.:
+      paddedId(1) retorna 001
+      paddedId(15) retorna 015
+      paddedId(517) retorna 517
+    */
+
+    return (pokeId + "").padStart(3, "0");
+  };
+
   const handleFetchPokemon = async (url: string) => {
     if (url) {
       setIsLoading(true);
@@ -81,7 +97,9 @@ const Pokemon = () => {
           <div className={`fadeIn ${styles.pokemon_container}`}>
             <h1 className={styles.pokemon_name}>{pokemon.name}</h1>
             <Image
-              src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`}
+              src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${paddedId(
+                pokemon.id
+              )}.png`}
               width={200}
               height={200}
               alt="imagem do pokemon"
